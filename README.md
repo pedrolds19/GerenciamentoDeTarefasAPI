@@ -35,12 +35,15 @@ Projeto desenvolvido em ASP.NET Core com foco em práticas de back-end, como: cr
    cd GerenciamentoDeTarefasAPI
 
 2. Restaure os pacotes:
+   
    dotnet restore
 
 3. Crie o banco de dados:
+   
    dotnet ef database update
 
 4. Execute a aplicação:
+   
    dotnet run
 
 5. Acesse a documentação interativa (Swagger):
@@ -78,5 +81,7 @@ GerenciamentoDeTarefasAPI
 
 ## 👨‍💻 Autor
 Desenvolvido por Pedro Ferreira
+
 📧 pedrofls19@gmail.com
+
 🎯 Projeto com fins de estudo e portfólio profissional.
