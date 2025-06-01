@@ -61,24 +61,6 @@ Projeto desenvolvido em ASP.NET Core com foco em práticas de back-end, como: cr
 | DELETE | `/api/tarefas/{id}` | Remove uma tarefa             |
 
 
-## ✅ Estrutura do Projeto
-GerenciamentoDeTarefasAPI
-├── Controllers/
-├── Data/
-│   └── AppDbContext.cs
-├── Models/
-├── Repositories/
-│   ├── Interfaces/
-│   └── Implementações/
-├── Services/
-│   ├── Interfaces/
-│   └── Implementações/
-├── Tests/
-│   └── Testes com xUnit/
-├── Program.cs
-└── appsettings.json
-
-
 ## 👨‍💻 Autor
 Desenvolvido por Pedro Ferreira
 
