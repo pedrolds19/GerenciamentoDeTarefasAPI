@@ -6,16 +6,16 @@ Projeto desenvolvido em ASP.NET Core com foco em práticas de back-end, como: cr
 
 ## Tecnologias e Conceitos Utilizados
 
-- ✅ ASP.NET Core 8 (API REST)
-- ✅ Entity Framework Core (ORM)
-- ✅ SQLite (banco de dados leve e portável)
-- ✅ Injeção de Dependência
-- ✅ Repository e Service Pattern
-- ✅ AutoMapper
-- ✅ xUnit (Testes de Unidade)
-- ✅ Swagger (OpenAPI)
-- ✅ Suporte a JSON e XML
-- ✅ Versionamento com Git
+- ASP.NET Core 8 (API REST)
+- Entity Framework Core (ORM)
+- SQLite (banco de dados leve e portável)
+- Injeção de Dependência
+- Repository e Service Pattern
+- AutoMapper
+- xUnit (Testes de Unidade)
+- Swagger (OpenAPI)
+- Suporte a JSON e XML
+- Versionamento com Git
 
 ---
 
