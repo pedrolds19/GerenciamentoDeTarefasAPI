@@ -1,10 +1,10 @@
-# 📌 API de Gerenciamento de Tarefas
+# API de Gerenciamento de Tarefas
 
 Projeto desenvolvido em ASP.NET Core com foco em práticas de back-end, como: criação e consumo de APIs, Entity Framework Core com SQLite, testes automatizados com xUnit, versionamento com Git e documentação com Swagger.
 
 ---
 
-## 🛠️ Tecnologias e Conceitos Utilizados
+## Tecnologias e Conceitos Utilizados
 
 - ✅ ASP.NET Core 8 (API REST)
 - ✅ Entity Framework Core (ORM)
@@ -25,7 +25,7 @@ Projeto desenvolvido em ASP.NET Core com foco em práticas de back-end, como: cr
 - .NET SDK 8.0 instalado
 - SQLite (opcional, o EF Core cria o arquivo `.db` automaticamente)
 
-## ⚙️ Configuração e Execução
+## Configuração e Execução
 
 ### Como rodar
 
@@ -50,7 +50,7 @@ Projeto desenvolvido em ASP.NET Core com foco em práticas de back-end, como: cr
    https://localhost:5001/swagger
  
 
-## 🔍 Endpoints Principais
+## Endpoints Principais
 
 | Verbo  | Rota                | Descrição                     |
 | ------ | ------------------- | ----------------------------- |
@@ -61,9 +61,9 @@ Projeto desenvolvido em ASP.NET Core com foco em práticas de back-end, como: cr
 | DELETE | `/api/tarefas/{id}` | Remove uma tarefa             |
 
 
-## 👨‍💻 Autor
+## Autor
 Desenvolvido por Pedro Ferreira
 
-📧 pedrofls19@gmail.com
+pedrofls19@gmail.com
 
-🎯 Projeto com fins de estudo e portfólio profissional.
+Projeto com fins de estudo e portfólio profissional.
