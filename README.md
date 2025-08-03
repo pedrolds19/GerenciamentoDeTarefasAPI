@@ -1,6 +1,6 @@
 # API de Gerenciamento de Tarefas
 
-Projeto desenvolvido em ASP.NET Core com foco em práticas de back-end, como: criação e consumo de APIs, Entity Framework Core com SQLite, testes automatizados com xUnit, versionamento com Git e documentação com Swagger.
+Projeto desenvolvido em ASP.NET Core com foco em práticas de back-end, como: criação e consumo de APIs, Entity Framework Core com SQLite, versionamento com Git e documentação com Swagger.
 
 ---
 
@@ -12,7 +12,6 @@ Projeto desenvolvido em ASP.NET Core com foco em práticas de back-end, como: cr
 - Injeção de Dependência
 - Repository e Service Pattern
 - AutoMapper
-- xUnit (Testes de Unidade)
 - Swagger (OpenAPI)
 - Suporte a JSON e XML
 - Versionamento com Git
