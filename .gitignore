@@ -285,6 +285,10 @@ FakesAssemblies/
 .ntvs_analysis.dat
 node_modules/
 
+# Angular (frontend-tarefas)
+frontend-tarefas/dist/
+frontend-tarefas/.angular/
+
 # Visual Studio 6 build log
 *.plg
 

@@ -1,0 +1,75 @@
+@import 'flatpickr/dist/flatpickr.min.css';
+@import 'flatpickr/dist/themes/dark.css';
+
+:root {
+  --bg: #141414;
+  --surface: #1c1c1c;
+  --surface-2: #242424;
+  --border: #333;
+  --text: #e8e8e8;
+  --muted: #9a9a9a;
+  --primary: #2f6fed;
+  --primary-hover: #2558c7;
+  --danger: #d64545;
+  --danger-hover: #b93a3a;
+  --late: #c9a227;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.45;
+}
+
+app-root {
+  display: block;
+  min-height: 100%;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+
+.flatpickr-calendar {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  font-family: inherit;
+}
+
+.flatpickr-day.selected {
+  background: var(--primary);
+  border-color: var(--primary);
+}

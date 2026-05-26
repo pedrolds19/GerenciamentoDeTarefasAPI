@@ -1,0 +1,170 @@
+<div class="app">
+  <header class="topbar">
+    <h1>Tarefas</h1>
+    <button type="button" class="btn btn-text" (click)="carregarTarefas()" [disabled]="carregando()">
+      Atualizar
+    </button>
+  </header>
+
+  @if (erro(); as mensagem) {
+    <p class="msg msg-error" role="alert">{{ mensagem }}</p>
+  }
+
+  <div class="layout">
+    <section class="block">
+      <h2 class="block-title">Nova tarefa</h2>
+      <form class="form" (ngSubmit)="criarTarefa()">
+        <label class="field">
+          Título
+          <input type="text" name="novaTitulo" [(ngModel)]="novaTitulo" required />
+        </label>
+
+        <label class="field">
+          Descrição
+          <textarea name="novaDescricao" rows="3" [(ngModel)]="novaDescricao"></textarea>
+        </label>
+
+        <label class="field field-date">
+          Data limite
+          <span class="date-wrap">
+            <input
+              type="text"
+              appDataBrPicker
+              name="novaDataLimite"
+              [(ngModel)]="novaDataLimite"
+              placeholder="dd/mm/aaaa hh:mm"
+              required
+            />
+          </span>
+        </label>
+
+        <button type="submit" class="btn btn-primary" [disabled]="criando() || !novaTitulo.trim()">
+          {{ criando() ? 'Salvando…' : 'Salvar' }}
+        </button>
+      </form>
+    </section>
+
+    <section class="block block-list">
+      <div class="block-head">
+        <h2 class="block-title">Lista</h2>
+        @if (!carregando() && !erro()) {
+          <span class="block-meta">
+            {{ totalTarefas() }} total · {{ pendentes() }} pendentes · {{ concluidas() }} concluídas
+          </span>
+        }
+      </div>
+
+      @if (carregando()) {
+        <p class="empty">Carregando…</p>
+      } @else if (!erro() && tarefas().length === 0) {
+        <p class="empty">Nenhuma tarefa cadastrada.</p>
+      } @else if (!erro()) {
+        <ul class="tasks">
+          @for (tarefa of tarefas(); track tarefa.id) {
+            <li
+              class="task"
+              [class.task-done]="tarefa.concluida"
+              [class.task-late]="atrasada(tarefa)"
+              [class.task-edit]="editandoId() === tarefa.id"
+            >
+              @if (editandoId() === tarefa.id) {
+                <form class="form" (ngSubmit)="salvarEdicao()">
+                  <label class="field">
+                    Título
+                    <input type="text" name="editTitulo" [(ngModel)]="editTitulo" required />
+                  </label>
+
+                  <label class="field field-inline">
+                    <input type="checkbox" name="editConcluida" [(ngModel)]="editConcluida" />
+                    Concluída
+                  </label>
+
+                  <label class="field">
+                    Descrição
+                    <textarea name="editDescricao" rows="2" [(ngModel)]="editDescricao"></textarea>
+                  </label>
+
+                  <label class="field field-date">
+                    Data limite
+                    <span class="date-wrap">
+                      <input
+                        type="text"
+                        appDataBrPicker
+                        name="editDataLimite"
+                        [(ngModel)]="editDataLimite"
+                        placeholder="dd/mm/aaaa hh:mm"
+                        required
+                      />
+                    </span>
+                  </label>
+
+                  <div class="actions">
+                    <button type="submit" class="btn btn-primary" [disabled]="salvando()">
+                      {{ salvando() ? 'Salvando…' : 'Salvar' }}
+                    </button>
+                    <button type="button" class="btn" (click)="cancelarEdicao()">Cancelar</button>
+                  </div>
+                </form>
+              } @else {
+                <div class="task-row">
+                  <div class="task-info">
+                    <div class="task-line">
+                      <span class="task-title">{{ tarefa.titulo ?? 'Sem título' }}</span>
+                      <span class="task-status">
+                        {{
+                          tarefa.concluida
+                            ? 'Concluída'
+                            : atrasada(tarefa)
+                              ? 'Atrasada'
+                              : 'Pendente'
+                        }}
+                      </span>
+                    </div>
+                    @if (tarefa.descricao) {
+                      <p class="task-desc">{{ tarefa.descricao }}</p>
+                    }
+                    <p class="task-date">
+                      Prazo: {{ tarefa.dataLimite | date: 'dd/MM/yyyy HH:mm' }}
+                    </p>
+                  </div>
+                  <div class="actions">
+                    <button type="button" class="btn" (click)="iniciarEdicao(tarefa)">Editar</button>
+                    <button type="button" class="btn btn-danger" (click)="solicitarExclusao(tarefa)">
+                      Excluir
+                    </button>
+                  </div>
+                </div>
+              }
+            </li>
+          }
+        </ul>
+      }
+    </section>
+  </div>
+</div>
+
+@if (tarefaParaExcluir(); as tarefa) {
+  <div class="dialog-backdrop" (click)="cancelarExclusao()"></div>
+  <div
+    class="dialog"
+    role="alertdialog"
+    aria-labelledby="dlg-title"
+    aria-describedby="dlg-desc"
+    aria-modal="true"
+  >
+    <h3 id="dlg-title">Excluir tarefa</h3>
+    <p id="dlg-desc">
+      Confirma a exclusão de <strong>{{ tarefa.titulo ?? 'Sem título' }}</strong>?
+    </p>
+    <div class="actions actions-end">
+      <button type="button" class="btn" (click)="cancelarExclusao()" [disabled]="excluindo()">
+        Cancelar
+      </button>
+      <button type="button" class="btn btn-danger" (click)="confirmarExclusao()" [disabled]="excluindo()">
+        {{ excluindo() ? 'Excluindo…' : 'Excluir' }}
+      </button>
+    </div>
+  </div>
+}
+
+<router-outlet />
