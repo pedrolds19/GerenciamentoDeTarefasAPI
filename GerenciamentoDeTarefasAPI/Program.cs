@@ -20,9 +20,12 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("FrontendAngular", policy =>
     {
-        policy.WithOrigins("http://localhost:4200")
-            .AllowAnyHeader()
-            .AllowAnyMethod();
+        policy.WithOrigins(
+                "http://localhost:4200",
+                "https://gerenciamento-de-tarefas-ud9g.onrender.com"
+              )
+              .AllowAnyHeader()
+              .AllowAnyMethod();
     });
 });
 
