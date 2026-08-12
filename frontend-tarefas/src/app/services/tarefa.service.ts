@@ -11,7 +11,7 @@ import {
   providedIn: 'root',
 })
 export class TarefaService {
-  private readonly apiUrl = 'http://localhost:5023/api/Tarefas';
+  private readonly apiUrl = 'https://gerenciamentodetarefasapi.onrender.com';
 
   constructor(private readonly http: HttpClient) {}
 
